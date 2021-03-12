@@ -10,13 +10,13 @@ Dataset website : http://vision.stanford.edu/Datasets/OlympicSports/
 
 The scripts are the following:
 
-# 1. parse_attributes.py (used to save a numpy array with some class-related attributes)
+ 1. parse_attributes.py (used to save a numpy array with some class-related attributes)
 
-# 2. convert_Olympic.py (used to convert the videos from .seq to .avi format)
+ 2. convert_Olympic.py (used to convert the videos from .seq to .avi format)
 
 ----------------------------------
 
-# Parsing class-related attributes
+### Parsing class-related attributes
 
 The class-related attributes are taken from the following publication:
 
@@ -61,7 +61,7 @@ You can see the correspondences in the saved Attributes_Olympic.png image.
 
 ----------------------------------
 
-# Converting the videos from .seq to .avi format
+### Converting the videos from .seq to .avi format
 
 To convert the videos of the dataset from .seq file format to .avi, we execute:
 ```

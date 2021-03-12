@@ -2,7 +2,7 @@
 # https://gist.github.com/psycharo/7e6422a491d93e1e3219/
 
 import struct
-import cv2
+from skimage import io
 
 def read_header(ifile):
         feed = ifile.read(4)
@@ -56,7 +56,6 @@ def read_seq(path):
         tmp_file = '/tmp/img%d.jpg' % i
         open(tmp_file, 'wb+').write(I)
         
-        img = cv2.imread(tmp_file)
-        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        img = io.imread(tmp_file)
         images.append(img)
     return images
