@@ -24,7 +24,7 @@ class_names = ['basketball_layup',
                'tennis_serve',
                'triple_jump',
                'vault'
-                ]
+               ]
 attribute_names = []
 attributes = np.zeros((N_classes, N_attributes))
 
@@ -35,7 +35,7 @@ cnt_attributes = 0
 file = open(attr_file, 'r')
 for line in file:
     line = line.rstrip('\n')
-    if cnt_line==0:
+    if cnt_line == 0:
         print('----------------------------------------------')
         print('Parsing attribute name')
         print('')
@@ -45,18 +45,18 @@ for line in file:
         attribute_names.append(line)
     else:
         # parsing attribute value
-        attributes[cnt_classes, cnt_attributes-1] = int(line)
-        print('Class {:02d} \t| Attribute {:02d}'.format(cnt_classes+1, cnt_attributes+1))
+        attributes[cnt_classes, cnt_attributes - 1] = int(line)
+        print('Class {:02d} \t| Attribute {:02d}'.format(cnt_classes + 1, cnt_attributes + 1))
         cnt_classes += 1
-    if cnt_classes==N_classes:
+    if cnt_classes == N_classes:
         cnt_line = 0
     else:
         cnt_line += 1
 
 np.savez(attr_npz_path, attributes, class_names, attribute_names)
 
-#plt.imshow(attributes)
-#plt.show()
+# plt.imshow(attributes)
+# plt.show()
 
 fig, ax = plt.subplots()
 im = ax.imshow(attributes)
