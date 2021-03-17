@@ -34,8 +34,9 @@ Olympic_Attributes.txt
 We have 16 classes of the Olympic Sports dataset, and 40 attributes.
 
 Then, we execute
-```
-python parse_attributes.py
+```python
+from olympic_sports.parse_attributes import read_attributes
+attributes, class_list, attribute_list = read_attributes()
 ```
 and save the following 3 variables in the 'attributes.npz' file:
 
@@ -64,16 +65,18 @@ You can see the correspondences in the saved Attributes_Olympic.png image.
 ### Converting the videos from .seq to .avi format
 
 To convert the videos of the dataset from .seq file format to .avi, we execute:
-```
-python convert_Olympic.py
+```python
+convert-olympic [path-seq-files]
 ```
 
 This script will need a file named "video_Olympic.list", containing all the videos. This file already exists in this repo.
 If you want to create this on your own for a modified version of the dataset, you can execute the following command:
 ```
-ls /path/to/your/dataset/*/*.avi > video_Olympic.list
+ls /path/to/your/dataset/*/*.seq > video_Olympic.list
 ```
-Then using a text editor you can simply find and replace the substring of the exported directories, so that you only keep the class names and the video names in your final file (as in the already saved file).
+Then using a text editor you can simply find and replace the substring of the exported directories, so that you only keep the class names and the video names in your final file (as in the already saved file). The folder location should be in the repo under `olympic_sports/resources` or in the enviroment directory.
+ 
+
 
 ----------------------------------
 
