@@ -3,7 +3,7 @@
 
 import struct
 from skimage import io
-
+from simplejpeg import decode_jpeg, decode_jpeg_header
 
 def read_header(ifile):
     feed = ifile.read(4)
@@ -53,10 +53,6 @@ def read_seq(path):
         seek[i + 1] = s
         nbytes = struct.unpack_from('@i', bytes[s:s + 4])[0]
         I = bytes[s + 4:s + nbytes]
-
-        tmp_file = '/tmp/img%d.jpg' % i
-        open(tmp_file, 'wb+').write(I)
-
-        img = io.imread(tmp_file)
+        img = decode_jpeg(I)
         images.append(img)
     return images
